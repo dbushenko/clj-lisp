@@ -4,26 +4,26 @@ This is a metacyclic interpretor as in SICP but written with Clojure. Also it is
 
 The body of 'let' and 'lambda' must consist of the 'do' block like this:
 
-(let [a 1
-      b 2]
-   (do
-      ((primitive +) 1 2)))
+    (let [a 1
+          b 2]
+       (do
+          ((primitive +) 1 2)))
 
 Since this is not a production-ready lisp, it contains NO predefined functions. It doesn't have even arythmetics -- everything is up to you. But you may use host language (Clojure) and call its functions using the word 'primitive' like this:
 
-((primitive println) "Hello world!")
+    ((primitive println) "Hello world!")
 
 You may predefine some functions and use them further like this:
 
-(let [+ (lambda [a b] (do ((primitive +) a b)))]
-  (+ 1 2))
+    (let [+ (lambda [a b] (do ((primitive +) a b)))]
+       (+ 1 2))
 
 A larger example see in 'example.lisp'.
   
 ## Usage
 
-$ lein uberjar
-$ run.sh
+    $ lein uberjar
+    $ run.sh
 
 ## License
 
